@@ -1,14 +1,8 @@
-// ── Type Definitions ──
-// Mirrors the Supabase schema defined in Plan_Tecnico.docx
-// In production, these will be auto-generated from Supabase
-
 export type UserRole = "admin" | "client";
-
 export type SessionStatus = "completed" | "in_progress" | "upcoming" | "cancelled";
-export type SessionType = "Presencial" | "Virtual";
-
+export type SessionType = "In-person" | "Virtual";
 export type PaymentStatus = "paid" | "pending" | "refunded" | "overdue";
-export type PlanType = "Mensual" | "Semanal" | "Por sesión";
+export type PlanType = "Monthly" | "Weekly" | "Per session";
 export type ClientStatus = "active" | "paused" | "inactive";
 
 export interface Client {

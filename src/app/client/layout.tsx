@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Dumbbell, TrendingUp, CalendarDays, CreditCard, Flame } from "lucide-react";
+import { Dumbbell, TrendingUp, CalendarDays, CreditCard, Flame, ArrowLeft } from "lucide-react";
 
 const navItems = [
-  { href: "/client/my-routine", label: "Mi Rutina", icon: Dumbbell },
-  { href: "/client/my-progress", label: "Mi Progreso", icon: TrendingUp },
-  { href: "/client/my-sessions", label: "Mis Citas", icon: CalendarDays },
-  { href: "/client/my-plan", label: "Mi Plan", icon: CreditCard },
+  { href: "/client/my-routine", label: "My Routine", icon: Dumbbell },
+  { href: "/client/my-progress", label: "My Progress", icon: TrendingUp },
+  { href: "/client/my-sessions", label: "My Sessions", icon: CalendarDays },
+  { href: "/client/my-plan", label: "My Plan", icon: CreditCard },
 ];
 
 export default function ClientLayout({
@@ -20,6 +20,15 @@ export default function ClientLayout({
 
   return (
     <div className="px-7 py-6 max-w-[920px] mx-auto animate-fade-in">
+      {/* Back to Home */}
+      <Link
+        href="/"
+        className="inline-flex items-center gap-1.5 text-[13px] text-text-muted hover:text-foreground no-underline mb-4 transition-colors"
+      >
+        <ArrowLeft size={14} />
+        Back to Home
+      </Link>
+
       {/* Client Header */}
       <div className="card-base p-5 mb-6 flex items-center justify-between">
         <div className="flex items-center gap-4">
@@ -29,9 +38,9 @@ export default function ClientLayout({
           <div>
             <div className="text-lg font-bold text-foreground">Carlos Mendoza</div>
             <div className="flex items-center gap-1.5 text-[13px] text-text-muted">
-              Ganar masa muscular
+              Build muscle mass
               <span className="inline-flex items-center gap-0.5 text-warning">
-                <Flame size={13} /> 12 días de racha
+                <Flame size={13} /> 12-day streak
               </span>
             </div>
           </div>
@@ -39,12 +48,12 @@ export default function ClientLayout({
         <div className="flex gap-5">
           <div className="text-center">
             <div className="text-xl font-bold text-primary">78 kg</div>
-            <div className="text-[11px] text-text-muted">Peso actual</div>
+            <div className="text-[11px] text-text-muted">Current weight</div>
           </div>
           <div className="w-px bg-border" />
           <div className="text-center">
             <div className="text-xl font-bold text-secondary">85 kg</div>
-            <div className="text-[11px] text-text-muted">Objetivo</div>
+            <div className="text-[11px] text-text-muted">Target</div>
           </div>
         </div>
       </div>
@@ -71,7 +80,6 @@ export default function ClientLayout({
         })}
       </div>
 
-      {/* Page Content */}
       {children}
     </div>
   );

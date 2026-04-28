@@ -11,7 +11,7 @@ export default function Home() {
         Personal Health Tracker
       </h1>
       <p className="text-text-muted text-sm mb-10 text-center max-w-md">
-        Plataforma integral para entrenadores personales. Selecciona una vista para explorar el demo.
+        All-in-one platform for personal trainers. Select a view to explore the demo.
       </p>
 
       <div className="flex gap-4 flex-wrap justify-center">
@@ -23,13 +23,13 @@ export default function Home() {
             <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center">
               <Shield size={20} className="text-primary" />
             </div>
-            <h2 className="text-lg font-bold text-foreground">Vista Entrenador</h2>
+            <h2 className="text-lg font-bold text-foreground">Trainer View</h2>
           </div>
           <p className="text-text-muted text-sm mb-4">
-            Dashboard, gestión de clientes, sesiones, rutinas y pagos.
+            Dashboard, client management, sessions, routines, and billing.
           </p>
           <span className="flex items-center gap-1 text-primary text-sm font-semibold group-hover:gap-2 transition-all">
-            Entrar <ArrowRight size={14} />
+            Enter <ArrowRight size={14} />
           </span>
         </Link>
 
@@ -41,19 +41,19 @@ export default function Home() {
             <div className="w-10 h-10 rounded-xl bg-secondary/15 flex items-center justify-center">
               <User size={20} className="text-secondary" />
             </div>
-            <h2 className="text-lg font-bold text-foreground">Vista Cliente</h2>
+            <h2 className="text-lg font-bold text-foreground">Client View</h2>
           </div>
           <p className="text-text-muted text-sm mb-4">
-            Tu rutina, progreso, próximas citas y plan de pago.
+            Your routine, progress, upcoming sessions, and billing plan.
           </p>
           <span className="flex items-center gap-1 text-secondary text-sm font-semibold group-hover:gap-2 transition-all">
-            Entrar <ArrowRight size={14} />
+            Enter <ArrowRight size={14} />
           </span>
         </Link>
       </div>
 
       <p className="text-text-muted text-xs mt-12">
-        Demo v1.0 — Datos de ejemplo
+        Demo v1.0 — Sample data
       </p>
     </div>
   );

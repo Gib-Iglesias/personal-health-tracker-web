@@ -8,14 +8,15 @@ import {
   CalendarDays,
   CreditCard,
   Dumbbell,
+  ArrowLeft,
 } from "lucide-react";
 
 const navItems = [
   { href: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/admin/clients", label: "Clientes", icon: Users },
-  { href: "/admin/sessions", label: "Sesiones", icon: CalendarDays },
-  { href: "/admin/payments", label: "Pagos", icon: CreditCard },
-  { href: "/admin/routines", label: "Rutinas", icon: Dumbbell },
+  { href: "/admin/clients", label: "Clients", icon: Users },
+  { href: "/admin/sessions", label: "Sessions", icon: CalendarDays },
+  { href: "/admin/payments", label: "Billing", icon: CreditCard },
+  { href: "/admin/routines", label: "Routines", icon: Dumbbell },
 ];
 
 export default function AdminLayout({
@@ -26,20 +27,28 @@ export default function AdminLayout({
   const pathname = usePathname();
 
   return (
-    <div className="flex h-[calc(100vh-57px)]">
+    <div className="flex h-screen">
       {/* ── Sidebar ── */}
       <aside className="w-[240px] bg-surface border-r border-border p-5 flex flex-col shrink-0">
-        <div className="flex items-center gap-3 px-2 mb-8">
+        <Link href="/" className="flex items-center gap-3 px-2 mb-2 no-underline group">
           <div className="w-9 h-9 rounded-xl gradient-primary flex items-center justify-center text-white font-extrabold text-sm">
             P
           </div>
           <div>
             <div className="font-bold text-[15px] text-foreground">PHT</div>
             <div className="text-[11px] text-primary font-medium">
-              Panel de Control
+              Control Panel
             </div>
           </div>
-        </div>
+        </Link>
+
+        <Link
+          href="/"
+          className="flex items-center gap-2 px-3.5 py-2 mb-4 rounded-xl no-underline text-[13px] text-text-muted hover:text-foreground hover:bg-card transition-all"
+        >
+          <ArrowLeft size={14} />
+          Back to Home
+        </Link>
 
         <nav className="flex flex-col gap-1">
           {navItems.map((item) => {
@@ -64,7 +73,6 @@ export default function AdminLayout({
 
         <div className="flex-1" />
 
-        {/* User card */}
         <div className="p-3.5 rounded-2xl card-base">
           <div className="flex items-center gap-2.5">
             <div className="w-9 h-9 rounded-full gradient-primary flex items-center justify-center text-xs font-bold text-white">
@@ -72,10 +80,10 @@ export default function AdminLayout({
             </div>
             <div>
               <div className="text-[13px] font-semibold text-foreground">
-                Juan López
+                John Lopez
               </div>
               <div className="text-[11px] text-primary font-medium">
-                Entrenador
+                Trainer
               </div>
             </div>
           </div>
