@@ -5,14 +5,14 @@ import { clientRoutine } from "@/lib/mock-data";
 export default function RoutinesPage() {
   return (
     <div className="animate-fade-in">
-      <h2 className="text-2xl font-bold text-foreground mb-6">Routine Builder</h2>
+      <h2 className="text-2xl font-bold text-foreground mb-6">Constructor de Rutinas</h2>
       <div className="card-base p-6">
         <div className="flex justify-between items-center mb-5">
           <div>
-            <h3 className="text-[17px] font-semibold text-foreground">Legs + Core</h3>
-            <p className="text-text-muted text-[13px] mt-1">Carlos Mendoza — Monday</p>
+            <h3 className="text-[17px] font-semibold text-foreground">Piernas + Core</h3>
+            <p className="text-text-muted text-[13px] mt-1">Carlos Mendoza — Lunes</p>
           </div>
-          <span className="text-xs text-primary font-semibold bg-primary/12 px-3 py-1 rounded-full">7 exercises</span>
+          <span className="text-xs text-primary font-semibold bg-primary/12 px-3 py-1 rounded-full">7 ejercicios</span>
         </div>
         <div className="flex flex-col gap-1.5">
           {clientRoutine.map((ex, i) => (
@@ -27,7 +27,7 @@ export default function RoutinesPage() {
           ))}
         </div>
         <button className="flex items-center justify-center gap-1.5 w-full mt-3 py-2.5 rounded-xl border-2 border-dashed border-border bg-transparent text-text-muted text-[13px] cursor-pointer hover:border-primary/40 hover:text-primary transition-colors">
-          <Plus size={14} /> Add exercise
+          <Plus size={14} /> Agregar ejercicio
         </button>
       </div>
     </div>

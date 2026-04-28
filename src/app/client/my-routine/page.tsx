@@ -12,8 +12,8 @@ export default function MyRoutinePage() {
     <div className="card-base p-6">
       <div className="flex justify-between items-center mb-5">
         <div>
-          <h3 className="text-lg font-semibold text-foreground">Legs + Core</h3>
-          <p className="text-text-muted text-[13px] mt-1">Monday — {checkedExercises.size}/{clientRoutine.length} exercises completed</p>
+          <h3 className="text-lg font-semibold text-foreground">Piernas + Core</h3>
+          <p className="text-text-muted text-[13px] mt-1">Lunes — {checkedExercises.size}/{clientRoutine.length} ejercicios completados</p>
         </div>
         <div className="w-[60px] h-[60px] rounded-full border-[3px] border-primary flex items-center justify-center">
           <span className="text-[15px] font-bold text-primary">{completionPct}%</span>
@@ -32,7 +32,7 @@ export default function MyRoutinePage() {
               </div>
               <div className="flex-1">
                 <div className={`text-sm font-semibold text-foreground ${checked ? "line-through" : ""}`}>{ex.name}</div>
-                <div className="text-xs text-text-muted mt-0.5">{ex.sets} sets × {ex.reps} · {ex.weight} · Rest {ex.rest}</div>
+                <div className="text-xs text-text-muted mt-0.5">{ex.sets} series × {ex.reps} · {ex.weight} · Descanso {ex.rest}</div>
               </div>
               <Play size={16} className="text-text-muted hover:text-primary transition-colors cursor-pointer" />
             </div>
