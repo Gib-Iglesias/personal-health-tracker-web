@@ -1,73 +1,60 @@
-"use client";
-
-import { useState } from "react";
-import { Shield, User } from "lucide-react";
-import { AdminDashboard } from "@/components/admin/AdminDashboard";
-import { ClientPortal } from "@/components/client/ClientPortal";
+import Link from "next/link";
+import { Shield, User, ArrowRight } from "lucide-react";
 
 export default function Home() {
-  const [view, setView] = useState<"admin" | "client">("admin");
-  const [fadeIn, setFadeIn] = useState(true);
-
-  const switchView = (v: "admin" | "client") => {
-    setFadeIn(false);
-    setTimeout(() => {
-      setView(v);
-      setFadeIn(true);
-    }, 200);
-  };
-
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* ── Top Bar ── */}
-      <header className="flex items-center justify-between px-6 py-3 border-b border-border bg-surface sticky top-0 z-50">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl gradient-primary flex items-center justify-center text-white font-extrabold text-sm shadow-lg">
-            P
-          </div>
-          <div>
-            <span className="font-bold text-base text-foreground">
-              Personal Health Tracker
-            </span>
-            <span className="ml-2 text-[10px] text-text-muted bg-card px-2.5 py-0.5 rounded-full font-semibold tracking-wider uppercase">
-              Demo
-            </span>
-          </div>
-        </div>
+    <div className="min-h-screen flex flex-col items-center justify-center p-8">
+      <div className="w-16 h-16 rounded-2xl gradient-primary flex items-center justify-center text-white font-extrabold text-2xl shadow-lg mb-6">
+        P
+      </div>
+      <h1 className="text-3xl font-bold text-foreground mb-2">
+        Personal Health Tracker
+      </h1>
+      <p className="text-text-muted text-sm mb-10 text-center max-w-md">
+        Plataforma integral para entrenadores personales. Selecciona una vista para explorar el demo.
+      </p>
 
-        <div className="flex gap-1 bg-card rounded-xl p-1 border border-border">
-          <button
-            onClick={() => switchView("admin")}
-            className={`flex items-center gap-1.5 px-5 py-2 rounded-lg text-[13px] font-semibold transition-all duration-200 cursor-pointer border-none ${
-              view === "admin"
-                ? "bg-primary text-white shadow-md"
-                : "bg-transparent text-text-muted hover:text-text-secondary"
-            }`}
-          >
-            <Shield size={14} />
-            Vista Entrenador
-          </button>
-          <button
-            onClick={() => switchView("client")}
-            className={`flex items-center gap-1.5 px-5 py-2 rounded-lg text-[13px] font-semibold transition-all duration-200 cursor-pointer border-none ${
-              view === "client"
-                ? "bg-secondary text-white shadow-md"
-                : "bg-transparent text-text-muted hover:text-text-secondary"
-            }`}
-          >
-            <User size={14} />
-            Vista Cliente
-          </button>
-        </div>
-      </header>
+      <div className="flex gap-4 flex-wrap justify-center">
+        <Link
+          href="/admin/dashboard"
+          className="group card-interactive p-6 min-w-[280px] no-underline"
+        >
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center">
+              <Shield size={20} className="text-primary" />
+            </div>
+            <h2 className="text-lg font-bold text-foreground">Vista Entrenador</h2>
+          </div>
+          <p className="text-text-muted text-sm mb-4">
+            Dashboard, gestión de clientes, sesiones, rutinas y pagos.
+          </p>
+          <span className="flex items-center gap-1 text-primary text-sm font-semibold group-hover:gap-2 transition-all">
+            Entrar <ArrowRight size={14} />
+          </span>
+        </Link>
 
-      {/* ── Content ── */}
-      <main
-        className="flex-1 transition-opacity duration-200"
-        style={{ opacity: fadeIn ? 1 : 0 }}
-      >
-        {view === "admin" ? <AdminDashboard /> : <ClientPortal />}
-      </main>
+        <Link
+          href="/client/my-routine"
+          className="group card-interactive p-6 min-w-[280px] no-underline"
+        >
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-10 h-10 rounded-xl bg-secondary/15 flex items-center justify-center">
+              <User size={20} className="text-secondary" />
+            </div>
+            <h2 className="text-lg font-bold text-foreground">Vista Cliente</h2>
+          </div>
+          <p className="text-text-muted text-sm mb-4">
+            Tu rutina, progreso, próximas citas y plan de pago.
+          </p>
+          <span className="flex items-center gap-1 text-secondary text-sm font-semibold group-hover:gap-2 transition-all">
+            Entrar <ArrowRight size={14} />
+          </span>
+        </Link>
+      </div>
+
+      <p className="text-text-muted text-xs mt-12">
+        Demo v1.0 — Datos de ejemplo
+      </p>
     </div>
   );
 }
